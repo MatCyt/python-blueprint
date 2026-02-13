@@ -92,12 +92,12 @@ select = [
     # --- Functions ---
     "ARG",      # flake8-unused-arguments — unused function arguments
     "FBT",      # flake8-boolean-trap — boolean positional arguments
-
+    
+    # --- Exception handling ---
+    "TRY",      # tryceratops — try/except best practices
+    
     # --- Pylint subset ---
     "PL",       # Pylint — errors, refactoring, conventions, warnings
-
-    # --- Dead code ---
-    "ERA",      # eradicate — commented-out code
 ]
 
 ignore = [
@@ -118,6 +118,7 @@ ignore = [
     "FBT001",   # boolean-typed-positional-argument — too strict for libraries with boolean flags
     "FBT002",   # boolean-default-positional-argument — same as above
     "G004",   # uses of f-strings to format logging messages
+    "TRY003",   # raise-vanilla-args — requiring custom exceptions for every message is too strict
 ]
 
 [tool.ruff.lint.mccabe]
@@ -138,3 +139,9 @@ max-statements = 80
 [tool.ruff.lint.flake8-tidy-imports]
 ban-relative-imports = "all"  # enforce absolute imports
 
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = [
+    "F401",     # unused-import — re-exports are common in __init__.py
+    "D104",     # missing-docstring-in-public-package
+    "TID252",   # relative-imports — __init__.py commonly re-exports via relative imports
+]
