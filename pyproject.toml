@@ -11,11 +11,13 @@ dev = [
     "mypy",
     "pytest",
     "pre-commit",
+    "deptry>=0.25.1",
+    "pytest-cov>=7.1.0",
 ]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "-v -ra --tb=long"
+addopts = "-v -ra --tb=long --strict-config"
 
 [tool.mypy]
 python_version = "3.14"
@@ -45,7 +47,7 @@ exclude = [
 ]
 
 [tool.ruff.format]
-docstring-code-format = true 
+docstring-code-format = true
 
 [tool.ruff.lint]
 select = [
@@ -99,10 +101,10 @@ select = [
     # --- Functions ---
     "ARG",      # flake8-unused-arguments — unused function arguments
     "FBT",      # flake8-boolean-trap — boolean positional arguments
-    
+
     # --- Exception handling ---
     "TRY",      # tryceratops — try/except best practices
-    
+
     # --- Pylint subset ---
     "PL",       # Pylint — errors, refactoring, conventions, warnings
 ]
@@ -115,6 +117,10 @@ ignore = [
     "E117",     # over-indented
     "COM812",   # missing-trailing-comma
     "ISC001",   # single-line-implicit-string-concatenation
+
+    # --- Docstrings ---
+    "D107",     # missing docstring in __init__
+    "D105",     # missing docstring in magic methods
 
     # ---- Line length ----
     "E501",     # line-too-long — handled by the formatter
