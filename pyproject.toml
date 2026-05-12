@@ -6,7 +6,12 @@ readme = "README.md"
 requires-python = ">=3.14"
 
 [dependency-groups]
-dev = ["ruff", "mypy", "pytest", "pre-commit"]
+dev = [
+    "ruff",
+    "mypy",
+    "pytest",
+    "pre-commit",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
