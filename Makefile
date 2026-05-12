@@ -1,4 +1,4 @@
-.PHONY: format lint type-check test test-cov check pre-commit clean help
+.PHONY: format lint type-check test test-cov check pre-commit pre-commit-update help
 
 ## Run code formatter
 format:
