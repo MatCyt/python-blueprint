@@ -132,6 +132,11 @@ ignore = [
     "FBT002",   # boolean-default-positional-argument — same as above
     "G004",   # uses of f-strings to format logging messages
     "TRY003",   # raise-vanilla-args — requiring custom exceptions for every message is too strict
+
+    # ---- Breaking Logic
+    "TC002",    # checks for third-party imports that are only used for type annotations
+    "TC003",    # checks for third-party imports that are only used for type annotations
+    "TC004",    # checks for third-party imports that are only used for type annotations
 ]
 
 [tool.ruff.lint.mccabe]
