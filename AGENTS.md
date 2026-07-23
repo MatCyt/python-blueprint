@@ -88,6 +88,10 @@ Use `uv run <cmd>` rather than activating a venv.
 
 ### Data or Input Validation
 - Treat every external input as untrusted and validate it at the boundary before passing it to business logic.
+- Do not create schemas for simple local values.
+- Use dataclasses for internal data that has already been validated at the boundary and now needs a typed, lightweight container.
+- Use Pydantic models for data that might be wrong, is business-critical, or crosses a trust boundary. This is especially relevant for external API responses, LLM output, request/response bodies, webhook payloads, config loaded from external systems, and final service/application outputs.
+- Do not use Pydantic models for batch, bulk, columnar or dataframe data.
 - Two layers, cleanly split: shape/format validation at the deserialization boundary (Pydantic), business-rule validation as standalone `validate_*` functions.
 - One rule per validator function, guard-clause style: compute the violation, return early if clean, otherwise raise a domain error.
 - Validate the complete unit of work before side effects when processing is all-or-nothing.
