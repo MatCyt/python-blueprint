@@ -1,0 +1,11 @@
+  **/__pycache__
+  **/.pytest_cache
+  **/.venv
+  **/.env
+  **/.git
+  **/.mypy_cache
+  **/.ruff_cache
+  services/**/docs
+  services/**/scripts
+  services/**/tests
+  services/**/Makefile
