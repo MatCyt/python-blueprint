@@ -1,2 +1,2 @@
 # python-blueprint
-generic python template repo structure to store project related settings
+generic python template to store settings and configuration / based on a monorepo structure
