@@ -29,8 +29,6 @@ warn_redundant_casts = true
 # =============================================================================
 # Ruff configuration: strict template
 # =============================================================================
-
-[tool.ruff]
 line-length = 120
 
 exclude = [
@@ -46,10 +44,10 @@ exclude = [
     "dist",
 ]
 
-[tool.ruff.format]
+[format]
 docstring-code-format = true
 
-[tool.ruff.lint]
+[lint]
 select = [
     # --- Core ---
     "F",        # Pyflakes — unused imports, undefined names, etc.
@@ -118,48 +116,51 @@ ignore = [
     "COM812",   # missing-trailing-comma
     "ISC001",   # single-line-implicit-string-concatenation
 
-    # --- Docstrings ---
-    "D107",     # missing docstring in __init__
-    "D105",     # missing docstring in magic methods
-
     # ---- Line length ----
     "E501",     # line-too-long — handled by the formatter
 
     # ---- Opinionated ----
+    "D107",     # docstrings in __init__ is an overkill is class docstring is already present
     "RET504",   # unnecessary-assign — assigning before return aids debugging
     # "PLR2004",  # magic-value-comparison — too noisy for general use
     "FBT001",   # boolean-typed-positional-argument — too strict for libraries with boolean flags
     "FBT002",   # boolean-default-positional-argument — same as above
-    "G004",   # uses of f-strings to format logging messages
     "TRY003",   # raise-vanilla-args — requiring custom exceptions for every message is too strict
-
-    # ---- Breaking Logic
-    "TC002",    # checks for third-party imports that are only used for type annotations
-    "TC003",    # checks for third-party imports that are only used for type annotations
-    "TC004",    # checks for third-party imports that are only used for type annotations
 ]
 
-[tool.ruff.lint.mccabe]
+[lint.mccabe]
 max-complexity = 12
 
-[tool.ruff.lint.pydocstyle]
+[lint.pydocstyle]
 convention = "google"
 
-[tool.ruff.lint.pycodestyle]
+[lint.pycodestyle]
 max-line-length = 130  # hard limit; formatter wraps at 120
 
-[tool.ruff.lint.pylint]
+[lint.pylint]
 max-args = 6
 max-branches = 10
 max-returns = 6
 max-statements = 80
 
-[tool.ruff.lint.flake8-tidy-imports]
+[lint.flake8-tidy-imports]
 ban-relative-imports = "all"  # enforce absolute imports
 
-[tool.ruff.lint.per-file-ignores]
+[lint.per-file-ignores]
 "__init__.py" = [
     "F401",     # unused-import — re-exports are common in __init__.py
     "D104",     # missing-docstring-in-public-package
     "TID252",   # relative-imports — __init__.py commonly re-exports via relative imports
+]
+"**/test_*.py" = [
+    "S101",     # assert-used — standard in pytest
+    "S105",     # hardcoded-password-string — false positives in test fixtures
+    "S106",     # hardcoded-password-func-arg — false positives in test fixtures
+    "S107",     # hardcoded-password-default — false positives in test helpers
+    "D101",     # missing-docstring-in-public-class — test class names are self-documenting
+    "D102",     # missing-docstring-in-public-method — test method names are self-documenting
+    "D103",     # docstrings not required in test functions
+    "PLR2004",  # magic-value-comparison — test assertions commonly use specific counts
+    "ARG001",   # unused-function-argument — fixtures as params may be unused in stubs
+    "ARG002",   # unused-method-argument — same for method-style tests
 ]
