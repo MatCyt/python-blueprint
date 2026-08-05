@@ -1,2 +1,2 @@
 # python-blueprint
-generic python template to store settings and configuration / based on a monorepo structure
+generic python template to store default settings and configuration
