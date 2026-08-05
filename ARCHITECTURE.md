@@ -1,26 +1,23 @@
 # Architecture - <PROJECT_NAME>
--> Context relevant only to this specific project
+::Context relevant only to this specific project
 
-## What & Why
-<high level project description>
+## Project Description
+<2-4 sentences shortly descripting the high-level project purpose>
 
 ## System Overview
 <high level design>
 
 ## Tech Stack
 <example>
-| Layer | Technology |
-|---|---|
-| Language | Python 3.14+ |
-| Dependency mgmt | uv |
-| Cloud platform | Microsoft Azure |
-| Database | Azure SQL |
-| Container hosting | Azure Container Apps |
-| Container registry | Azure Container Registry |
-| Secrets & config | Azure Key Vault |
-| File storage | Azure Blob Storage |
-| CI/CD | GitHub Actions (path-based triggers per service) |
-| Branching | Trunk-based (`main` always deployable, short-lived feature branches) |
+- **Language & tooling:** Python 3.14+, uv
+- **Cloud:** Microsoft Azure — Azure SQL, Container Apps, Container Registry, Key Vault, Blob Storage
+- **CI/CD:** GitHub Actions (path-based triggers per service)
+- **Branching:** trunk-based (`main` always deployable, short-lived feature branches)
+
+## Project Terminology
+<domain terms and abbreviations an agent must know; one line each>
+<example>
+- **Run** — one end-to-end execution of the pipeline for a single input file.
 
 ## Architectural Constraints
 <example>

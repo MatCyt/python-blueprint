@@ -22,7 +22,7 @@ deptry:
 	uv run deptry .
 
 ## Run all checks (lint + type-check + test + deptry)
-check: type-check test deptry
+verify: format type-check test deptry
 
 ## Install/update pre-commit hooks
 pre-commit:
